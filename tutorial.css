@@ -1,0 +1,197 @@
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  
+}
+
+:root {
+  --hue-neutral: 200;
+  --hue-wrong: 0;
+  --hue-correct: 145;
+  --delay: 0;
+  --duration: 3s;
+  --iterations: 1;
+}
+
+
+
+body {
+  background: linear-gradient(-45deg, #f4f3ef, #74c2f6, #179f6e, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.hide {
+  display: none;
+}
+
+.tutorial-text {
+  font-size: 2.5rem;
+  color: aliceblue;
+}
+
+.tutorial-container {
+  height: 100px;
+  width: 100%;
+  max-width: 1500px;
+}
+
+.wrapper {
+  display: flex;
+  left: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-wrapper {
+  background-color: hsl(var(--hue), 100%, 50%);
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'BenchNine', Arial, sans-serif;
+  font-size: 1em;
+  font-size: 22px;
+  line-height: 1em;
+  margin: 15px 40px;
+  outline: none;
+  padding: 12px 40px 10px;
+  position: relative;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.button-wrapper:before,
+.button-wrapper:after {
+  border-color: transparent;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  border-style: solid;
+  border-width: 0;
+  content: "";
+  height: 24px;
+  position: absolute;
+  width: 24px;
+}
+
+.button-wrapper:before {
+  border-color: hsl(var(--hue), 100%, 50%);
+  border-top-width: 2px;
+  left: 0px;
+  top: -5px;
+}
+
+.button-wrapper:after {
+  border-bottom-width: 2px;
+  border-color: hsl(var(--hue), 100%, 50%);
+  bottom: -5px;
+  right: 0px;
+}
+
+.button-wrapper:hover,
+.button-wrapper.hover {
+  background-color: hsl(var(--hue), 100%, 50%);
+}
+
+.button-wrapper:hover:before,
+.button-wrapper.hover:before,
+.button-wrapper:hover:after,
+.button-wrapper.hover:after {
+  height: 100%;
+  width: 100%;
+}
+
+form {
+  margin: 20px;
+  font-size: 5.5rem;
+}
+
+h1 {
+  color:#ffffff;
+  font-size: 3.5rem;
+}
+
+
+/* •·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•·•· */
+
+
+.reveal-text,
+.reveal-text::after {
+  animation-delay: var(--animation-delay, 2s);
+  animation-iteration-count: var(--iterations, 1);
+  animation-duration: var(--duration, 3s);
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+.reveal-text {
+  --animation-delay: var(--delay, 0);
+  --animation-duration: var(--duration, 3s);
+  --animation-iterations: var(--iterations, 1);
+  position: relative;
+  font-size: 5vw;
+  animation-name: clip-text;
+  color: #FFF;
+  white-space: nowrap;
+  cursor: default;
+}
+.reveal-text {
+    content: "";
+    height: max-content;
+    width: max-content;
+    position: absolute;
+    z-index: 999;
+    top: 200px;
+    left: 10px;
+    right: 0;
+    bottom: 0;
+    /*background-color: hsl(var(--hue), 100%, 20%);*/
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    pointer-events: none;
+    animation-name: text-revealer;
+  }
+  
+
+
+
+@keyframes clip-text {
+  from {
+      clip-path: inset(0 100% 0 0);
+  }
+  to {
+  clip-path: inset(0 0 0 0);
+  }
+}
+
+
+@keyframes text-revealer {
+  
+  0%, 50% {
+    transform-origin: 0 50%;
+  }
+  
+  60%, 100% {
+    transform-origin: 100% 50%;   
+  }
+
+  
+  60% {
+    transform: scaleX(1);
+  }
+  
+  100% {
+    transform: scaleX(1);
+  }
+}
