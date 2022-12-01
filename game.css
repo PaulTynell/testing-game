@@ -196,8 +196,63 @@ input::placeholder {
 
 /* Scaling */ 
 
+@media screen and (max-width: 600px) {
+  .choice-container {
+    min-width: 50rem;
+  }
+  #question {
+    flex-direction: column;
+    padding: 0 2rem 0 2rem;
+
+  }
+  #hud {
+    padding: 8rem;
+    margin-top: 4rem;
+  }
+}
+
+
 @media screen and (max-width: 768px) {
   .choice-container {
-    min-width: 40rem;
+    min-width: 50rem;
+  }
+  #question {
+    flex-direction: column;
+    padding: 0 2rem 0 2rem;
+
+  }
+  #hud {
+    padding: 8rem;
+    margin-top: 4rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .choice-container {
+    min-width: 50rem;
+  }
+  #question {
+    flex-direction: column;
+    padding: 0 2rem 0 2rem;
+
+  }
+  #hud {
+    padding: 8rem;
+    margin-top: 4rem;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .choice-container {
+    min-width: 50rem;
+  }
+  #question {
+    flex-direction: column;
+    padding: 0 2rem 0 2rem;
+
+  }
+  #hud {
+    padding: 8rem;
+    margin-top: 4rem;
   }
 }
